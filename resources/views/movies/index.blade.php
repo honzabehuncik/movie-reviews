@@ -7,4 +7,7 @@
             <li><a href="{{ route('movies.show', $movie->id) }}">{{ $movie->title }}</a></li>
         @endforeach
     </ul>
+    <button type="button" class="btn btn-primary">
+  Notifications <span class="badge text-bg-secondary">4</span>
+</button>
 @endsection

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->integer('rating');
-            $table->text('review_text')->nullable();
+        Schema::table('reviews', function (Blueprint $table) {
             $table->text('review_description')->nullable();
-            $table->timestamps();
+        });
+    
+        Schema::table('movies', function (Blueprint $table) {
+            $table->string('background_url')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::table('reviews', function (Blueprint $table) {
+            //
+        });
     }
 };
