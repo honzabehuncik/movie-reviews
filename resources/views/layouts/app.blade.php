@@ -9,9 +9,24 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="container">
-        @yield('content')
-    </div>
+ @include('layouts.navbar')
+    @yield('content')
 <script src="/js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const scrollYThreshold = 200;
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > scrollYThreshold) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+});
+
+</script>
+
 </body>
 </html>

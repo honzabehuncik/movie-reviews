@@ -11,4 +11,6 @@ class Movie extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    protected $fillable = ['title', 'description', 'genre', 'background_url'];
 }

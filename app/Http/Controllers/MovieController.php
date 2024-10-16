@@ -9,8 +9,11 @@ class MovieController extends Controller
 {
     public function index()
     {
+        $randomMovie = Movie::inRandomOrder()->first();
+        
         $movies = Movie::all();
-        return view('movies.index', compact('movies'));
+        
+        return view('movies.index', compact('randomMovie', 'movies'));
     }
 
     public function show($id)
